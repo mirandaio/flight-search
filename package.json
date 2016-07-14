@@ -1,0 +1,24 @@
+{
+  "name": "flight-search",
+  "version": "0.0.1",
+  "description": "Flight search",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mirandaio/flight-search.git"
+  },
+  "keywords": [],
+  "author": "Alfredo Miranda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mirandaio/flight-search/issues"
+  },
+  "homepage": "https://github.com/mirandaio/flight-search#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
