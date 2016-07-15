@@ -1,4 +1,5 @@
 var express = require('express');
+var http = require('http');
 
 var app = express();
 
@@ -6,7 +7,10 @@ app.use(express.static('public'));
 app.use(express.static('bower_components'));
 
 app.get('/airlines', function(req, res) {
-  res.end('some airlines');
+  getAirlines().then(function(airlines) {
+    res.set('Content-Type', 'application/json');
+    res.send(airlines);
+  });
 });
 
 app.get('/airports', function(req, res) {
@@ -23,6 +27,24 @@ app.get('/search', function(req, res) {
     date: date
   });
 });
+
+function getAirlines() {
+  return new Promise(function(resolve, reject) {
+    http.get({
+      host: 'node.locomote.com',
+      path: '/code-task/airlines'
+    }, function(res) {
+      res.setEncoding('utf8');
+      var body = [];
+      res.on('data', function(d) {
+        body.push(d);
+      });
+      res.on('end', function() {
+        resolve(body.join(''));
+      });
+    });
+  });
+}
 
 app.listen(process.env.PORT || 8764);
 console.log('Listening on port 8764');
