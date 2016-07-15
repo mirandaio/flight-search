@@ -9,17 +9,21 @@
   <form>
     <label>
       From
-      <input type="text" name="from">
+      <input id="from" type="text" name="from" list="departures">
+      <datalist id="departures"></datalist>
     </label>
     <label>
       To
-      <input type="text" name="to">
+      <input id="to" type="text" name="to" list="arrivals">
+      <datalist id="arrivals"></datalist>
     </label>
     <label>
       Date
       <input type="date" name="date">
     </label>
     <button id="search" type="submit">Search</button>
+    <button id="airlines" type="button">Airlines</button>
+    <button id="airports" type="button">Airports</button>
   </form>
 </body>
 </html>
